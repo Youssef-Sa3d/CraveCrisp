@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Logo from "../Assets/logo.png";
+import Logo from "../assets/logo.png";
 import UserProgressContext from "../Context/userProgressContext";
 import { useSelector } from "react-redux";
 
