@@ -33,7 +33,7 @@ export default function Item({ donut }) {
           </span>
         </div>
         <button
-          className="text-md md:text-lg px-4 py-2 text-xs rounded-xl bg-bgWhite  w-fit font-bold hover:text-bgWhite hover:bg-babyBlue ease-out duration-500"
+          className="text-md md:text-lg px-4 py-2 text-md rounded-xl bg-bgWhite  w-fit font-bold hover:text-bgWhite hover:bg-babyBlue ease-out duration-500"
           onClick={handleAddToCart}
         >
           Add to cart +
