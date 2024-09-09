@@ -51,7 +51,7 @@ export default function Cart() {
               onClick={handleCancel}
               className="text-md md:text-lg px-3 font-semibold"
             >
-              Cancel
+              Close
             </button>
             {cartItems.length > 0 && (
               <button

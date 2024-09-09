@@ -134,7 +134,7 @@ export default function Checkout() {
                 onClick={handleCancel}
                 className="text-md md:text-lg px-3 font-semibold"
               >
-                Cancel
+                Close
               </button>
 
               <button className="text-md md:text-lg px-4 py-2 rounded-xl bg-offWhite  w-fit font-bold hover:text-bgWhite hover:bg-babyBlue ease-out duration-500">
