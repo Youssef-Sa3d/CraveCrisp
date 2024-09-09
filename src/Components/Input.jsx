@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Input({ id, label, ...props }) {
   return (
-    <p className="flex flex-col ">
+    <p className="flex flex-col w-full ">
       <label htmlFor={id} className="uppercase text-sm md:text-md text-brown pl-1 font-semibold ">
         {label}
       </label>
