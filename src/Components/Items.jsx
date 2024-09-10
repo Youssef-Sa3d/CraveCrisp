@@ -62,7 +62,7 @@ export default function Items({ selectedCategory }) {
         <main className="flex flex-col w-dvw h-dvh py-20 items-center gap-5 justify-center text-brown text-center">
           <h1 className="text-xl md:text-2xl font-bold">Sorry!</h1>
           <p className="text-xl md:text-2xl font-medium">
-            There are no Items on this category yet.
+            There are no Items in this category yet.
           </p>
         </main>
       )}
