@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import { client } from "../../lib/client.js";
 
-export default function Items() {
+export default function Items({ selectedCategory }) {
   const [donutsList, setDonutsList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [notification, setNotification] = useState(""); 
+  const [notification, setNotification] = useState("");
 
   useEffect(() => {
     const query = `*[_type == 'product']{name , slug , image{asset} , price , _id , category->{name}}`;
@@ -24,8 +24,13 @@ export default function Items() {
 
   const showNotification = (itemName) => {
     setNotification(`${itemName} has been added to your cart!`);
-    setTimeout(() => setNotification(""), 3000); 
+    setTimeout(() => setNotification(""), 3000);
   };
+
+  const filteredDonuts =
+    selectedCategory === "all" || selectedCategory === ""
+      ? donutsList // Show all items if "all" or default is selected
+      : donutsList.filter((donut) => donut.category.name === selectedCategory);
 
   return (
     <>
@@ -43,16 +48,23 @@ export default function Items() {
           ></div>
           <span className="ml-3 text-brown text-lg">Loading...</span>
         </div>
-      ) : (
+      ) : filteredDonuts.length >= 1 ? (
         <ul className="w-full flex items-center flex-row flex-wrap justify-center gap-8 py-10 px-10 md:px-16">
-          {donutsList.map((donut) => (
+          {filteredDonuts.map((donut) => (
             <Item
               donut={donut}
               key={donut._id}
-              onAddToCart={showNotification} 
+              onAddToCart={showNotification}
             />
           ))}
         </ul>
+      ) : (
+        <main className="flex flex-col w-dvw h-dvh py-20 items-center gap-5 justify-center text-brown text-center">
+          <h1 className="text-xl md:text-2xl font-bold">Sorry!</h1>
+          <p className="text-xl md:text-2xl font-medium">
+            There are no Items on this category yet.
+          </p>
+        </main>
       )}
     </>
   );
