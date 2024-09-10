@@ -4,14 +4,15 @@ import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
 import Root from "./Pages/Root";
 import Error from "./Pages/Error";
+import { Analytics } from "@vercel/analytics/react";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <Error/>,
+    errorElement: <Error />,
     children: [
-      { index:true, element: <Home /> },
+      { index: true, element: <Home /> },
       { path: "Cart", element: <Cart /> },
       { path: "Checkout", element: <Checkout /> },
     ],
@@ -19,7 +20,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Analytics />
+    </>
+  );
 }
 
 export default App;
