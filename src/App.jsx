@@ -5,6 +5,8 @@ import Checkout from "./Pages/Checkout";
 import Root from "./Pages/Root";
 import Error from "./Pages/Error";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,7 @@ function App() {
     <>
       <RouterProvider router={router} />
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
