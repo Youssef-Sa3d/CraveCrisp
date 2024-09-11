@@ -25,7 +25,6 @@ export default function CategorySelect({ onCategoryChange }) {
   }, []);
 
   useEffect(() => {
-    // Function to handle clicks outside of the component
     const handleClickOutside = (event) => {
       if (
         dropdownRef.current &&
@@ -37,10 +36,8 @@ export default function CategorySelect({ onCategoryChange }) {
       }
     };
 
-    // Attach event listener to the document
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Cleanup event listener on component unmount
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -56,7 +53,6 @@ export default function CategorySelect({ onCategoryChange }) {
     setIsOpen(!isOpen);
   };
 
-  // Ensure dropdown matches button width
   const dropdownWidth = buttonRef.current?.offsetWidth;
 
   return (
@@ -99,7 +95,7 @@ export default function CategorySelect({ onCategoryChange }) {
             <ul
               ref={dropdownRef}
               className="absolute z-10 bg-inWhite border border-brown rounded-md shadow-md mt-1 max-h-48 overflow-auto"
-              style={{ minWidth: dropdownWidth }} // Ensure dropdown width matches button
+              style={{ minWidth: dropdownWidth }} 
             >
               <li
                 className={`py-2 px-3 cursor-pointer hover:bg-babyBlue hover:text-white ${
